@@ -1,0 +1,25 @@
+/*
+#result {
+}
+*/
+#bid {
+    border:1px solid black;
+    margin:20px;
+    padding:20px;
+    text-align:center;
+}
+#bid h1 {
+    padding:0px;
+    margin:0px;
+    padding-bottom:20px;
+}
+#choices {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding:auto;
+}
+button {
+    font-size:20px;
+    font-family:Georgia;
+    padding:20px;
+}
