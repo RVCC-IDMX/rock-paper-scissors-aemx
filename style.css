@@ -1,25 +1,156 @@
-/*
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Rako";
+    font-style: normal;
+    font-weight: normal;
+    src: url("fonts/rako.ttf");
+    font-display: swap;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* adapted from https://stackoverflow.com/questions/14068103 */
+img { 
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+    image-rendering: optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+}
+
+body {
+    background-color: #eeeeee;
+}
+
+.container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.logo {
+    width: 600px;
+}
+
+.screen {
+    width: 300px;
+    height: 250px;
+    margin: -48px 0 12px;
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    justify-content: space-around;
+    border: 3px solid #263238;
+    border-top: 8px solid #263238;
+    box-shadow: inset 0px 8px 4px #00000022;
+    border-radius: 12px;
+    background-color: #ECEFF1;
+}
+
+.pieces {
+    width: 250px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+.piece {
+    height: 56px;
+}
+
+#cpu-piece {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);    
+}
+
+#result-desc {
+    font: 22px "Rako", sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
 #result {
+    font: 48px "Rako", sans-serif;
+    font-weight: bold;
+    text-align: center;
 }
-*/
+
 #bid {
-    border:1px solid black;
-    margin:20px;
-    padding:20px;
-    text-align:center;
+    display: flex;
+    flex-flow: column wrap;
+    margin: 24px;
+    text-align: center;
+    flex-grow: 1;
 }
+
+.choose {
+    font: 36px "Rako", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 12px;
+}
+
+#choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+.choice {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    font: 22px "Rako", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 3px solid #263238;
+    border-radius: 20px;
+    transition: 0.2s background-color;
+    cursor: pointer;
+}
+
+#rock:hover {
+    background-color: #FFEBEE;
+}
+
+#paper:hover {
+    background-color: #FFFDE7;
+}
+
+#scissors:hover {
+    background-color: #E3F2FD;
+}
+
+.choice img {
+    height: 40px;
+}
+
 #bid h1 {
     padding:0px;
     margin:0px;
     padding-bottom:20px;
 }
-#choices {
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding:auto;
-}
+
 button {
     font-size:20px;
     font-family:Georgia;
     padding:20px;
+}
+
+.footer {
+    font: 18px "Rako", sans-serif;
+    font-weight: bold;
+    margin: 36px;
 }

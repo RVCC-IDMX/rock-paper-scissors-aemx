@@ -4,27 +4,34 @@ const dice = sides => Math.ceil(Math.random() * sides);
 // Array of choices in the game
 const choices = ["rock", "paper", "scissors"];
 
+// Capitalizes the first letter of a string
+const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
+
 // Game logic
 const rockPaperScissors = human => {
 
     // Roll d3 for computer's choice
     const cpu = dice(3);
 
-    // Get string detailing the choses made by each player
-    let choiceStr = `You picked <b>${choices[human-1]}</b><br>`;
-    choiceStr += `The computer picked <b>${choices[cpu-1]}</b><br>`;
+    // Get resulting object chosen by player and CPU
+    const playerPiece = choices[human-1];
+    const cpuPiece = choices[cpu-1];
+
+    // Set sprites inside the screen
+    document.getElementById("player-piece").src = `img/${playerPiece}.png`;
+    document.getElementById("cpu-piece").src = `img/${cpuPiece}.png`;
 
     // Check to see who won the game
     // Return a string representing the result and the player choices
     if (human === cpu) {
         // Tie gane
-        return `${choiceStr}<b>Tie game!</b>`;
+        return [`Both players chose ${playerPiece}.`, "Tie game!"];
     } else if (((human > cpu) && !(human === 3 && cpu === 1)) || (human === 1 && cpu === 3)) {
         // Human wins
-        return `${choiceStr}<b>You win!</b>`;
+        return [`${capitalize(playerPiece)} beats ${cpuPiece}.`, "You win!"];
     } else {
         // Computer wins
-        return `${choiceStr}<b>You lose!</b>`;
+        return [`${capitalize(cpuPiece)} beats ${playerPiece}.`, "You lose!"];
     }
 }
 
@@ -33,7 +40,9 @@ window.addEventListener('click', e => {
     for (const [i, v] of choices.entries()) {
         id = document.getElementById(v);
         if (id.contains(e.target)) {
-            document.getElementById('result').innerHTML = rockPaperScissors(i+1);
+            const [description, result] = rockPaperScissors(i+1);
+            document.getElementById('result-desc').innerHTML = description;
+            document.getElementById('result').innerHTML = result;
         }
     }
 });

@@ -8,14 +8,27 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <div id="result"><!--results of the game--></div>
-    <div id="bid">
-        <h1>Choose:</h1>
-        <div id="choices">
-            <button id="rock">Rock</button>
-            <button id="paper">Paper</button>
-            <button id="scissors">Scissors</button>
+    <div class="container">
+        <img class="logo" src="img/logo.png" alt="Rock paper scissors">
+        <div class="screen">
+            <div class="pieces">
+                <img class="piece" id="player-piece">
+                <img class="piece" id="cpu-piece">
+            </div>
+            <div class="results">
+                <div id="result-desc"><!--outcome description--></div>
+                <div id="result"><!--results of the game--></div>
+            </div>
         </div>
+        <div id="bid">
+            <h1 class="choose">Choose:</h1>
+            <div id="choices">
+                <button class="choice" id="rock"><img src="img/rock.png" alt="Rock">Rock</button>
+                <button class="choice" id="paper"><img src="img/paper.png" alt="Rock">Paper</button>
+                <button class="choice" id="scissors"><img src="img/scissors.png" alt="Rock">Scissors</button>
+            </div>
+        </div>
+        <p class="footer">With respect to <a href="https://www.omori-game.com/" target="_blank">OMORI</a></p>
     </div>
 </body>
 </html>
